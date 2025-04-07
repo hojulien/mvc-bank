@@ -1,7 +1,7 @@
 <?php
 
     // Enum "Account" pour la classe "BankAccount"
-    enum Account {
+    enum EnumAccount {
         case courant;
         case epargne;
 
@@ -12,7 +12,7 @@
             };
         }
 
-        public static function toEnum(string $typeA): Account {
+        public static function toEnum(string $typeA): EnumAccount {
             return match($typeA) {
                 "Compte courant" => self::courant,
                 "Compte épargne" => self::epargne,
@@ -22,7 +22,7 @@
     }
 
     // Enum "Contract" pour la classe "Contract"
-    enum Contract {
+    enum EnumContract {
         case assurance_vie;
         case assurance_hab;
         case credit_immo;
@@ -39,7 +39,7 @@
             };
         }
 
-        public static function fromString(string $typeC): Contract {
+        public static function fromString(string $typeC): EnumContract {
             return match($typeC) {
                 "Assurance Vie" => self::assurance_vie,
                 "Assurance Habitation" => self::assurance_hab,

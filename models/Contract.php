@@ -3,14 +3,14 @@
 require_once __DIR__ . '/../lib/database.php';
 require_once __DIR__ . '/../lib/utils.php';
 
-class BankAccount {
+class Contract {
     private ?int $id;
-    private Contract $typeContract;
+    private EnumContract $typeContract;
     private float $price;
     private int $duration;
     private ?int $userId;
 
-    public function __construct(?int $id, Contract $typeC, float $price, int $duration, ?int $userId) {
+    public function __construct(?int $id, EnumContract $typeC, float $price, int $duration, ?int $userId) {
         $this->setId($id ?? null);
         $this->setTypeContract($typeC);
         $this->setPrice($price);
@@ -46,7 +46,7 @@ class BankAccount {
         $this->id = $id;
     }
 
-    public function setTypeContract(Contract $typeC): void {
+    public function setTypeContract(EnumContract $typeC): void {
         $this->typeContract = $typeC;
     }
 

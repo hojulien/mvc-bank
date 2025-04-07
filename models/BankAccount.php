@@ -6,11 +6,11 @@ require_once __DIR__ . '/../lib/utils.php';
 class BankAccount {
     private ?int $id;
     private string $iban;
-    private Account $typeAccount;
+    private EnumAccount $typeAccount;
     private float $balance;
     private ?int $userId;
 
-    public function __construct(?int $id, string $iban, Account $typeA, float $balance, ?int $userId) {
+    public function __construct(?int $id, string $iban, EnumAccount $typeA, float $balance, ?int $userId) {
         $this->setId($id ?? null);
         $this->setIban($iban);
         $this->setTypeAccount($typeA);
@@ -51,7 +51,7 @@ class BankAccount {
         $this->iban = htmlspecialchars($iban);
     }
 
-    public function setTypeAccount(Account $typeA): void {
+    public function setTypeAccount(EnumAccount $typeA): void {
         $this->typeAccount = $typeA;
     }
 
