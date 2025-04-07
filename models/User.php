@@ -52,7 +52,6 @@ class User {
     }
 
     public function setFirstName(string $fName): void {
-        // htmlspecialchars évite les attaques XSS
         $this->firstName = htmlspecialchars($fName);
     }
 
@@ -61,7 +60,6 @@ class User {
     }
 
     public function setEmail(string $email): void {
-        // htmlspecialchars évite les attaques XSS
         $this->email = htmlspecialchars($email);
     }
 
@@ -69,7 +67,6 @@ class User {
         $this->phoneNumber = htmlspecialchars($phoneN);
     }
 
-    
     public function setAddress(?string $address): void {
         $this->address = htmlspecialchars($address);
     }
