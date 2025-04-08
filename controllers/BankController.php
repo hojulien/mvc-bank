@@ -2,6 +2,7 @@
 
 require_once __DIR__ . '/../models/repositories/BankRepository.php';
 require_once __DIR__ . '/../models/BankAccount.php';
+require_once __DIR__ . '/../lib/utils.php';
 
 class BankController {
     private BankRepository $bankRepo;
@@ -15,7 +16,7 @@ class BankController {
         require_once __DIR__ . '/../views/bank/list.php';
     }
 
-    public function show(int $id) {
+    public function view(int $id) {
         $bank = $this->bankRepo->getAccount($id);
         require_once __DIR__ . '/../views/bank/view.php';
     }
@@ -25,10 +26,12 @@ class BankController {
     }
 
     public function add() {
-        $bank = new BankAccount($_POST['iban'], $_POST['typeA'], $_POST['balance'], $_POST['userId']);
+        $typeA = EnumAccount::toEnum($_POST['typeA']);
+        $bank = new BankAccount($_POST['iban'], $typeA, $_POST['balance'], $_POST['userId']);
         $this->bankRepo->create($bank);
 
-        header('Location: /../views/bank/home.php');
+        header('Location: ?action=bank-list');
+        exit;
     }
 
     public function edit(int $id) {
@@ -37,15 +40,20 @@ class BankController {
     }
 
     public function update() {
-        $bank = new BankAccount($_POST['iban'], $_POST['typeA'], $_POST['balance'], $_POST['userId'], $_POST['id']);
+        $bankId = $_POST['id'];
+        $typeA = EnumAccount::toEnum($_POST['typeA']);
+        $bank = new BankAccount($_POST['iban'], $typeA, $_POST['balance'], $_POST['userId']);
+        $bank->setId($bankId);
         $this->bankRepo->update($bank);
 
-        header('Location: /../views/bank/home.php');
+        header('Location: ?action=bank-list');
+        exit;
     }
 
     public function delete(int $id) {
         $this->bankRepo->delete($id);
 
-        header('Location: /../views/bank/home.php');
+        header('Location: ?action=bank-list');
+        exit;
     }
 }

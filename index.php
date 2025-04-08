@@ -41,6 +41,24 @@ switch($action) {
     case('bank-list'):
         $bankC->home();
         break;
+    case('bank-view'):
+        $bankC->view($id);
+        break;
+    case('bank-create'):
+        $bankC->create();
+        break;   
+    case('bank-add'):
+        $bankC->add();
+        break;
+    case('bank-edit'):
+        $bankC->edit($id);
+        break;
+    case('bank-update'):
+        $bankC->update();
+        break;
+    case('bank-delete'):
+        $bankC->delete($id);
+        break;
     // CONTRACT
     case('contract-list'):
         $contractC->home();

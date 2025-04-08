@@ -25,7 +25,7 @@
                     </div>
                     <div class="view-buttons">
                         <button id="edit"><a href="?action=user-edit&id=<?= $user->getId() ?>">Modifier les informations du client ✏️</a></button>
-                        <button id="delete"><a onclick="return confirm('Voulez-vous supprimer cette entrée?');" href="?action=client-delete&id=<?= $user->getId() ?>">Supprimer le profil client ❌</a></button>
+                        <button id="delete"><a onclick="return confirm('Voulez-vous supprimer ce client?');" href="?action=user-delete&id=<?= $user->getId() ?>">Supprimer le profil client ❌</a></button>
                     </div>
                 </div>
                 <button class="return"><a href="?action=user-list" >Retour à la liste</a></button>

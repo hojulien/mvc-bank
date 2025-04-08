@@ -8,14 +8,14 @@ class BankAccount {
     private string $iban;
     private EnumAccount $typeAccount;
     private float $balance;
-    private ?int $userId;
+    private int $userId;
 
-    public function __construct(string $iban, EnumAccount $typeA, float $balance, int $userId, ?int $id = null) {
+    public function __construct(string $iban, EnumAccount $typeA, float $balance, int $userId) {
         $this->setIban($iban);
         $this->setTypeAccount($typeA);
         $this->setBalance($balance);
-        $this->setUserId($userId ?? null);
-        $this->id = $id;
+        $this->setUserId($userId);
+        $this->id = null;
     }
 
     // GETTERS
