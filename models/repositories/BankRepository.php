@@ -28,7 +28,7 @@ class BankRepository {
 
         $accounts = [];
         foreach($result as $row) {
-            $account = new BankAccount($row['bank_id'], $row['bank_iban'], EnumAccount::toEnum($row['bank_typeAccount']), $row['bank_balance'], $row['bank_userId']);
+            $account = new BankAccount($row['bank_iban'], EnumAccount::toEnum($row['bank_typeAccount']), $row['bank_balance'], $row['bank_userId'], $row['bank_id']);
             $accounts[] = $account;
         }
 
@@ -44,7 +44,7 @@ class BankRepository {
             return null;
         }
 
-        $account = new BankAccount($result['bank_id'], $result['bank_iban'], EnumAccount::toEnum($result['bank_typeAccount']), $result['bank_balance'], $result['bank_userId']);
+        $account = new BankAccount($result['bank_iban'], EnumAccount::toEnum($result['bank_typeAccount']), $result['bank_balance'], $result['bank_userId'], $result['bank_id']);
         return $account;
     }
 

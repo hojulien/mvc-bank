@@ -28,7 +28,7 @@ class ContractRepository {
 
         $contracts = [];
         foreach($result as $row) {
-            $contract = new Contract($row['contract_id'], EnumContract::toEnum($row['contract_type']), $row['contract_price'], $row['contract_duration'], $row['contract_userId']);
+            $contract = new Contract(EnumContract::toEnum($row['contract_type']), $row['contract_price'], $row['contract_duration'], $row['contract_userId'], $row['contract_id']);
             $contracts[] = $contract;
         }
 
@@ -44,7 +44,7 @@ class ContractRepository {
             return null;
         }
 
-        $contract = new Contract($result['contract_id'], EnumContract::toEnum($result['contract_type']), $result['contract_price'], $result['contract_duration'], $result['contract_userId']);
+        $contract = new Contract(EnumContract::toEnum($result['contract_type']), $result['contract_price'], $result['contract_duration'], $result['contract_userId'], $result['contract_id']);
         return $contract;
     }
 

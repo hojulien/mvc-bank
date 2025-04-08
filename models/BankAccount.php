@@ -10,12 +10,12 @@ class BankAccount {
     private float $balance;
     private ?int $userId;
 
-    public function __construct(?int $id, string $iban, EnumAccount $typeA, float $balance, ?int $userId) {
-        $this->setId($id ?? null);
+    public function __construct(string $iban, EnumAccount $typeA, float $balance, int $userId, ?int $id = null) {
         $this->setIban($iban);
         $this->setTypeAccount($typeA);
         $this->setBalance($balance);
         $this->setUserId($userId ?? null);
+        $this->id = $id;
     }
 
     // GETTERS

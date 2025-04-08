@@ -17,6 +17,8 @@
                 </div>
                 <div class="nav-options">
                     <p class="nav-option"><a href="?action=user-list">Liste des clients</a></p>
+                    <p class="nav-option"><a href="?action=bank-list">Liste des comptes</a></p>
+                    <p class="nav-option"><a href="?action=contract-list">Liste des contrats</a></p>
                 </div>
             </nav>
         </header>
