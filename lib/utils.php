@@ -39,7 +39,7 @@
             };
         }
 
-        public static function fromString(string $typeC): EnumContract {
+        public static function toEnum(string $typeC): EnumContract {
             return match($typeC) {
                 "Assurance Vie" => self::assurance_vie,
                 "Assurance Habitation" => self::assurance_hab,

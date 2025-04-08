@@ -1,11 +1,21 @@
 <?php
 
-require_once __DIR__ . '/models/repositories/UserRepository.php';
+require_once __DIR__ . '/controllers/UserController.php';
 
-// "test" de vérification de la connexion entre la DB et le projet.
-$userRepo = new UserRepository();
+$userC = new UserController();
 
-$getAllUsers = $userRepo->getUsers();
-var_dump($getAllUsers);
+$action = $_GET['action'] ?? 'home'; // home par defaut.
+$id = $_GET['id'] ?? null;
+
+switch($action) {
+    case('home'):
+        require_once __DIR__ . '/views/home.php';
+        break;
+    case('user-list'):
+        $userC->home();
+        break;
+    default:
+        require_once __DIR__ . '/views/404.php';
+}
 
 ?>

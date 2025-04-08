@@ -28,14 +28,14 @@ class ContractRepository {
 
         $contracts = [];
         foreach($result as $row) {
-            $contract = new Contract($row['contract_id'], $row['contract_type'], $row['contract_price'], $row['contract_duration'], $row['contract_userId']);
+            $contract = new Contract($row['contract_id'], EnumContract::toEnum($row['contract_type']), $row['contract_price'], $row['contract_duration'], $row['contract_userId']);
             $contracts[] = $contract;
         }
 
         return $contracts;
     }
 
-    public function getAccount(int $id): ?Contract {
+    public function getContract(int $id): ?Contract {
         $statement = $this->connection->getConnection()->prepare("SELECT * FROM contracts WHERE contract_id = :id");
         $statement->execute(['id' => $id]);
         $result = $statement->fetch();
@@ -44,7 +44,7 @@ class ContractRepository {
             return null;
         }
 
-        $contract = new Contract($result['contract_id'], $result['contract_type'], $result['contract_price'], $result['contract_duration'], $result['contract_userId']);
+        $contract = new Contract($result['contract_id'], EnumContract::toEnum($result['contract_type']), $result['contract_price'], $result['contract_duration'], $result['contract_userId']);
         return $contract;
     }
 

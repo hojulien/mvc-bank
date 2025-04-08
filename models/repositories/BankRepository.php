@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/../Bank.php';
+require_once __DIR__ . '/../BankAccount.php';
 require_once __DIR__ . '/../../lib/database.php';
 require_once __DIR__ . '/../../lib/utils.php';
 
@@ -28,7 +28,7 @@ class BankRepository {
 
         $accounts = [];
         foreach($result as $row) {
-            $account = new BankAccount($row['bank_id'], $row['bank_iban'], $row['bank_typeAccount'], $row['bank_balance'], $row['bank_userId']);
+            $account = new BankAccount($row['bank_id'], $row['bank_iban'], EnumAccount::toEnum($row['bank_typeAccount']), $row['bank_balance'], $row['bank_userId']);
             $accounts[] = $account;
         }
 
@@ -44,7 +44,7 @@ class BankRepository {
             return null;
         }
 
-        $account = new BankAccount($result['bank_id'], $result['bank_iban'], $result['bank_typeAccount'], $result['bank_balance'], $result['bank_userId']);
+        $account = new BankAccount($result['bank_id'], $result['bank_iban'], EnumAccount::toEnum($result['bank_typeAccount']), $result['bank_balance'], $result['bank_userId']);
         return $account;
     }
 

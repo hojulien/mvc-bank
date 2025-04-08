@@ -10,13 +10,13 @@ class User {
     private string $phoneNumber;
     private string $address;
 
-    public function __construct(int $id, string $fName, string $lName, string $email, string $phoneN, ?string $address) {
-        $this->setId($id);
+    public function __construct(string $fName, string $lName, string $email, string $phoneN, ?string $address, ?int $id = null) {
         $this->setFirstName($fName);
         $this->setLastName($lName);
         $this->setEmail($email);
         $this->setPhoneNumber($phoneN);
         $this->setAddress($address);
+        $this->id = $id;
     }
 
     // GETTERS
