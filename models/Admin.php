@@ -6,6 +6,12 @@ class Admin {
     private int $id;
     private string $email;
     private string $password;
+    
+    public function __construct(int $id, string $email, string $password) {
+        $this->setId($id);
+        $this->setEmail($email);
+        $this->setPassword($password);
+    }
 
     // GETTERS
 

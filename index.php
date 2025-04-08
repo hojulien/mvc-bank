@@ -1,12 +1,16 @@
 <?php
 
+session_start();
+
 require_once __DIR__ . '/controllers/UserController.php';
 require_once __DIR__ . '/controllers/BankController.php';
 require_once __DIR__ . '/controllers/ContractController.php';
+require_once __DIR__ . '/controllers/AuthController.php';
 
 $userC = new UserController();
 $bankC = new BankController();
 $contractC = new ContractController();
+$authC = new AuthController();
 
 $action = $_GET['action'] ?? 'home'; // home par defaut.
 $id = $_GET['id'] ?? null;
@@ -14,6 +18,16 @@ $id = $_GET['id'] ?? null;
 switch($action) {
     case('home'):
         require_once __DIR__ . '/views/home.php';
+        break;
+    // LOGIN
+    case 'logout':
+        $authC->logout();
+        break;
+    case 'doLogin':
+        $authC->doLogin();
+        break;
+    case 'login':
+        $authC->login();
         break;
     // USER
     case('user-list'):
