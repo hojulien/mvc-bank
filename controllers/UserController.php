@@ -15,7 +15,7 @@ class UserController {
         require_once __DIR__ . '/../views/user/list.php';
     }
 
-    public function show(int $id) {
+    public function view(int $id) {
         $user = $this->userRepo->getUser($id);
         require_once __DIR__ . '/../views/user/view.php';
     }
@@ -28,7 +28,8 @@ class UserController {
         $user = new User($_POST['fName'], $_POST['lName'], $_POST['email'], $_POST['phoneN'], $_POST['address']);
         $this->userRepo->create($user);
 
-        header('Location: /../views/user/home.php');
+        header('Location: ?action=user-list');
+        exit;
     }
 
     public function edit(int $id) {
@@ -37,15 +38,19 @@ class UserController {
     }
 
     public function update() {
-        $user = new User($_POST['fName'], $_POST['lName'], $_POST['email'], $_POST['phoneN'], $_POST['address'], $_POST['id']);
+        $userId = $_POST['id'];
+        $user = new User($_POST['fName'], $_POST['lName'], $_POST['email'], $_POST['phoneN'], $_POST['address']);
+        $user->setId($userId);
         $this->userRepo->update($user);
 
-        header('Location: /../views/user/home.php');
+        header('Location: ?action=user-list');
+        exit;
     }
 
     public function delete(int $id) {
         $this->userRepo->delete($id);
 
-        header('Location: /../views/user/home.php');
+        header('Location: ?action=user-list');
+        exit;
     }
 }

@@ -3,20 +3,20 @@
 require_once __DIR__ . '/../lib/database.php';
 
 class User {
-    private int $id;
+    private ?int $id;
     private string $firstName;
     private string $lastName;
     private string $email;
     private string $phoneNumber;
     private string $address;
 
-    public function __construct(string $fName, string $lName, string $email, string $phoneN, ?string $address, ?int $id = null) {
+    public function __construct(string $fName, string $lName, string $email, string $phoneN, ?string $address) {
         $this->setFirstName($fName);
         $this->setLastName($lName);
         $this->setEmail($email);
         $this->setPhoneNumber($phoneN);
         $this->setAddress($address);
-        $this->id = $id;
+        $this->id = null;
     }
 
     // GETTERS

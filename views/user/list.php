@@ -1,6 +1,7 @@
 <?php require_once __DIR__ . '/../templates/header.php'; ?>
 
             <section>
+                <h1><a href="?action=user-create">Ajouter un nouveau client</a></h1> <br>
                 <h1>Liste des users</h1>
 
                 <table>

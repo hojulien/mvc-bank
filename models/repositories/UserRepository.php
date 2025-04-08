@@ -15,7 +15,8 @@ class UserRepository {
         $result = $statement->fetchAll();
         $users = [];
         foreach($result as $row) {
-            $user = new User($row['user_firstName'], $row['user_lastName'], $row['user_email'], $row['user_phoneNumber'], $row['user_address'], $row['user_id']);
+            $user = new User($row['user_firstName'], $row['user_lastName'], $row['user_email'], $row['user_phoneNumber'], $row['user_address']);
+            $user->setId($row['user_id']);
             $users[] = $user;
         }
 
@@ -31,7 +32,8 @@ class UserRepository {
             return null;
         }
 
-        $user = new User($result['user_firstName'], $result['user_lastName'], $result['user_email'], $result['user_phoneNumber'], $result['user_address'], $result['user_id']);
+        $user = new User($result['user_firstName'], $result['user_lastName'], $result['user_email'], $result['user_phoneNumber'], $result['user_address']);
+        $user->setId($result['user_id']);
         return $user;
     }
 
@@ -40,13 +42,19 @@ class UserRepository {
                 ->getConnection()
                 ->prepare('INSERT INTO users (user_firstName, user_lastName, user_email, user_phoneNumber, user_address) VALUES (:fName, :lName, :email, :phoneN, :address)');
 
-        return $statement->execute([
+        $result = $statement->execute([
             'fName' => $user->getFirstName(),
             'lName' => $user->getLastName(),
             'email' => $user->getEmail(),
             'phoneN' => $user->getPhoneNumber(),
             'address' => $user->getAddress()
         ]);
+
+        if ($result) {
+            $user->setId($this->connection->getConnection()->lastInsertId());
+        }
+
+        return $result;
     }
 
     public function update(User $user): bool {
