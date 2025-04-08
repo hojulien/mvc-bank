@@ -1,7 +1,7 @@
 <?php require_once __DIR__ . '/../templates/header.php'; ?>
 
             <section>
-                <h1><a href="?action=bank-create">Ajouter un nouveau client</a></h1> <br>
+                <h1><a href="?action=bank-create">Ajouter un nouveau compte</a></h1> <br>
                 <h1>Liste des comptes bancaires</h1>
 
                 <table>

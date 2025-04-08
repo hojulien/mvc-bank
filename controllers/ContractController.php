@@ -2,6 +2,7 @@
 
 require_once __DIR__ . '/../models/repositories/ContractRepository.php';
 require_once __DIR__ . '/../models/Contract.php';
+require_once __DIR__ . '/../lib/utils.php';
 
 class ContractController {
     private ContractRepository $contractRepo;
@@ -15,7 +16,7 @@ class ContractController {
         require_once __DIR__ . '/../views/contract/list.php';
     }
 
-    public function show(int $id) {
+    public function view(int $id) {
         $contract = $this->contractRepo->getContract($id);
         require_once __DIR__ . '/../views/contract/view.php';
     }
@@ -25,10 +26,11 @@ class ContractController {
     }
 
     public function add() {
-        $contract = new Contract($_POST['typeC'], $_POST['price'], $_POST['duration'], $_POST['userId']);
+        $contract = new Contract(EnumContract::toEnum($_POST['typeC']), $_POST['price'], $_POST['duration'], $_POST['userId']);
         $this->contractRepo->create($contract);
 
-        header('Location: /../views/contract/list.php');
+        header('Location: ?action=contract-list');
+        exit;
     }
 
     public function edit(int $id) {
@@ -37,15 +39,18 @@ class ContractController {
     }
 
     public function update() {
-        $contract = new Contract($_POST['typeC'], $_POST['price'], $_POST['duration'], $_POST['userId'], $_POST['id']);
+        $contract = new Contract(EnumContract::toEnum($_POST['typeC']), $_POST['price'], $_POST['duration'], $_POST['userId']);
+        $contract->setId($_POST['id']);
         $this->contractRepo->update($contract);
 
-        header('Location: /../views/contract/list.php');
+        header('Location: ?action=contract-list');
+        exit;
     }
 
     public function delete(int $id) {
         $this->contractRepo->delete($id);
 
-        header('Location: /../views/contract/list.php');
+        header('Location: ?action=contract-list');
+        exit;
     }
 }

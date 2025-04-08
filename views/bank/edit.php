@@ -10,19 +10,19 @@
                     </div>
                     <div class="form">
                         <label for="typeA">Type de compte:</label>
-                        <?php $status = $bank->getTypeAccount(); ?>
+                        <?php $typeA = $bank->getTypeAccount(); ?>
                         <select name="typeA" id="typeA">
-                            <option <?= $status == 'Compte courant' ? 'selected' : '' ?> value="Compte courant">Compte courant</option>
-                            <option <?= $status == 'Compte épargne' ? 'selected' : '' ?>value="Compte épargne">Compte épargne</option>
+                            <option <?= $typeA == 'Compte courant' ? 'selected' : '' ?> value="Compte courant">Compte courant</option>
+                            <option <?= $typeA == 'Compte épargne' ? 'selected' : '' ?>value="Compte épargne">Compte épargne</option>
                         </select>
                     </div>
                     <div class="form">
                         <label for="balance">Solde bancaire</label>
-                        <input type="number" step="0.01" min="0" id="balance" name="balance"  value="<?= $bank->getBalance() ?>"required>
+                        <input type="number" step="0.01" min="0" id="balance" name="balance"  value="<?= $bank->getBalance() ?>" required>
                     </div>
                     <div class="form">
                         <label for="userId">ID Client:</label>
-                        <input type="number" id="userId" name="userId" value="<?= $bank->getUserId() ?>">
+                        <input type="number" id="userId" name="userId" value="<?= $bank->getUserId() ?>" required>
                     </div>
                     <button class="form-valid" type="submit">Modifier les informations</button>
                 </form>

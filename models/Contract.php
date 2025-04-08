@@ -8,14 +8,14 @@ class Contract {
     private EnumContract $typeContract;
     private float $price;
     private int $duration;
-    private ?int $userId;
+    private int $userId;
 
-    public function __construct(EnumContract $typeC, float $price, int $duration, ?int $userId, ?int $id = null) {
+    public function __construct(EnumContract $typeC, float $price, int $duration, ?int $userId) {
         $this->setTypeContract($typeC);
         $this->setPrice($price);
         $this->setDuration($duration);
         $this->setUserId($userId ?? null);
-        $this->id = $id;
+        $this->id = null;
     }
 
     // GETTERS

@@ -26,8 +26,7 @@ class BankController {
     }
 
     public function add() {
-        $typeA = EnumAccount::toEnum($_POST['typeA']);
-        $bank = new BankAccount($_POST['iban'], $typeA, $_POST['balance'], $_POST['userId']);
+        $bank = new BankAccount($_POST['iban'], EnumAccount::toEnum($_POST['typeA']), $_POST['balance'], $_POST['userId']);
         $this->bankRepo->create($bank);
 
         header('Location: ?action=bank-list');
@@ -40,10 +39,8 @@ class BankController {
     }
 
     public function update() {
-        $bankId = $_POST['id'];
-        $typeA = EnumAccount::toEnum($_POST['typeA']);
-        $bank = new BankAccount($_POST['iban'], $typeA, $_POST['balance'], $_POST['userId']);
-        $bank->setId($bankId);
+        $bank = new BankAccount($_POST['iban'], EnumAccount::toEnum($_POST['typeA']), $_POST['balance'], $_POST['userId']);
+        $bank->setId($_POST['id']);
         $this->bankRepo->update($bank);
 
         header('Location: ?action=bank-list');

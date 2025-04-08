@@ -63,6 +63,24 @@ switch($action) {
     case('contract-list'):
         $contractC->home();
         break;
+    case('contract-view'):
+        $contractC->view($id);
+        break;
+    case('contract-create'):
+        $contractC->create();
+        break;   
+    case('contract-add'):
+        $contractC->add();
+        break;
+    case('contract-edit'):
+        $contractC->edit($id);
+        break;
+    case('contract-update'):
+        $contractC->update();
+        break;
+    case('contract-delete'):
+        $contractC->delete($id);
+        break;
     default:
         require_once __DIR__ . '/views/404.php';
 }
