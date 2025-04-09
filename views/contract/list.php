@@ -12,6 +12,7 @@
                             <th>Type de contrat</th>
                             <th>Prix mensuel</th>
                             <th>Durée (mois)</th>
+                            <th>Actions</th>
                         </tr>
                     </thead>
 

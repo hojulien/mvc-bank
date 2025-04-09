@@ -12,6 +12,7 @@
                             <th>IBAN</th>
                             <th>Type de compte</th>
                             <th>Solde initial</th>
+                            <th>Actions</th>
                         </tr>
                     </thead>
 

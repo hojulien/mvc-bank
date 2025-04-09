@@ -1,6 +1,8 @@
 <?php
 
 require_once __DIR__ . '/../models/repositories/UserRepository.php';
+require_once __DIR__ . '/../models/repositories/BankRepository.php';
+require_once __DIR__ . '/../models/repositories/ContractRepository.php';
 require_once __DIR__ . '/../models/User.php';
 require_once __DIR__ . '/../lib/utils.php';
 
@@ -20,7 +22,12 @@ class UserController {
 
     public function view(int $id) {
         requireAdmin();
+        $bankRepo = new BankRepository();
+        $contractRepo = new ContractRepository();
+
         $user = $this->userRepo->getUser($id);
+        $banks = $bankRepo->getAccounts($id);
+        $contracts = $contractRepo->getContracts($id);
         require_once __DIR__ . '/../views/user/view.php';
     }
 

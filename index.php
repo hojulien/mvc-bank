@@ -17,6 +17,7 @@ $id = $_GET['id'] ?? null;
 
 switch($action) {
     case('home'):
+        requireAdmin();
         require_once __DIR__ . '/views/home.php';
         break;
     // LOGIN
@@ -99,6 +100,7 @@ switch($action) {
     case('no-access'):
         require_once __DIR__ . '/views/no-access.php';
         break;
+    // 404
     default:
         require_once __DIR__ . '/views/404.php';
 }

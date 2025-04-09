@@ -30,7 +30,7 @@ class AuthController {
 
     public function logout() {
         unset($_SESSION['admin_id']);
-        header('Location: ?');
+        header('Location: ?action=login');
         exit;
     }
 }
