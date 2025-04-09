@@ -72,7 +72,7 @@ section {
     justify-content: center;
     align-items: center;
     min-width: 100px;
-    width: 500px;
+    flex: 1;
     height: 100%;
     font-size: 25px;
     background-color: #7b969d;
@@ -181,8 +181,10 @@ input, textarea, select {
 .view-options {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    min-width: 600px;
+    align-items: stretch;
+    width: 100%;
+    min-width: 300px;
+    max-width: 700px;
 }
 
 .view-option {
@@ -200,13 +202,15 @@ input, textarea, select {
 .key {
     font-weight: bold;
     background-color: #5b6e74;
-    min-width: 200px;
+    width: 40%;
+    height: 100%;
     border-radius: 10px 0 0 10px;
 }
 
 .value {
     background-color: #7b969d;
-    min-width: 500px;
+    width: 60%;
+    height: 100%;
     border-radius: 0 10px 10px 0;
 }
 
@@ -227,4 +231,14 @@ footer {
     align-items: center;
     font-size: 20px;
     padding: 20px;
+}
+
+@media (max-width: 800px) {
+    .home-options {
+        flex-direction: column;
+    }
+    
+    .home-option {
+        width: 100%;
+    }
 }

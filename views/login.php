@@ -13,6 +13,6 @@
                             <button class="form-valid" type="submit">Se connecter</button>
                         </div>
                     </form>
-                </section>+
+                </section>
 
 <?php require_once __DIR__ . '/templates/footer.php';
