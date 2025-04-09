@@ -16,13 +16,13 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `admin`
+-- Table structure for table `admins`
 --
 
-DROP TABLE IF EXISTS `admin`;
+DROP TABLE IF EXISTS `admins`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `admin` (
+CREATE TABLE `admins` (
   `admin_id` int(11) NOT NULL AUTO_INCREMENT,
   `admin_email` varchar(100) NOT NULL,
   `admin_password` varchar(100) NOT NULL,
@@ -33,21 +33,21 @@ CREATE TABLE `admin` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `admin`
+-- Dumping data for table `admins`
 --
 
-/*!40000 ALTER TABLE `admin` DISABLE KEYS */;
-INSERT INTO `admin` VALUES (1,'admin@gmail.com','$2y$10$WasiG9OoFbbFkemwX1lbAeXWumfZwaVkM766jlHCbvrPvIU1lB7OS');
-/*!40000 ALTER TABLE `admin` ENABLE KEYS */;
+/*!40000 ALTER TABLE `admins` DISABLE KEYS */;
+INSERT INTO `admins` VALUES (1,'admin@gmail.com','$2y$10$WasiG9OoFbbFkemwX1lbAeXWumfZwaVkM766jlHCbvrPvIU1lB7OS');
+/*!40000 ALTER TABLE `admins` ENABLE KEYS */;
 
 --
--- Table structure for table `bankaccount`
+-- Table structure for table `bankaccounts`
 --
 
-DROP TABLE IF EXISTS `bankaccount`;
+DROP TABLE IF EXISTS `bankaccounts`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `bankaccount` (
+CREATE TABLE `bankaccounts` (
   `bank_id` int(11) NOT NULL AUTO_INCREMENT,
   `bank_iban` varchar(40) NOT NULL,
   `bank_typeAccount` enum('Compte courant','Compte épargne') NOT NULL,
@@ -56,26 +56,26 @@ CREATE TABLE `bankaccount` (
   PRIMARY KEY (`bank_id`),
   UNIQUE KEY `bank_iban` (`bank_iban`),
   KEY `fk_bank_user` (`bank_userId`),
-  CONSTRAINT `fk_bank_user` FOREIGN KEY (`bank_userId`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `fk_bank_user` FOREIGN KEY (`bank_userId`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `bankaccount`
+-- Dumping data for table `bankaccounts`
 --
 
-/*!40000 ALTER TABLE `bankaccount` DISABLE KEYS */;
-INSERT INTO `bankaccount` VALUES (1,'FR7617499123451234567890153','Compte courant',1500.00,1),(2,'FR7614889123451234567890128','Compte épargne',3245.88,2),(3,'FR7617939123451234567890181','Compte courant',1800.00,3),(4,'FR7614158123451234567890197','Compte épargne',250.00,4),(5,'FR7618319123451234567890117','Compte courant',180.48,5),(6,'FR7601234099990123456789046','Compte épargne',10000.00,1);
-/*!40000 ALTER TABLE `bankaccount` ENABLE KEYS */;
+/*!40000 ALTER TABLE `bankaccounts` DISABLE KEYS */;
+INSERT INTO `bankaccounts` VALUES (1,'FR7617499123451234567890153','Compte courant',1500.00,1),(2,'FR7614889123451234567890128','Compte épargne',3245.88,2),(3,'FR7617939123451234567890181','Compte courant',1800.00,3),(4,'FR7614158123451234567890197','Compte épargne',250.00,4),(5,'FR7618319123451234567890117','Compte courant',180.48,5),(6,'FR7601234099990123456789046','Compte épargne',10000.00,1);
+/*!40000 ALTER TABLE `bankaccounts` ENABLE KEYS */;
 
 --
--- Table structure for table `contract`
+-- Table structure for table `contracts`
 --
 
-DROP TABLE IF EXISTS `contract`;
+DROP TABLE IF EXISTS `contracts`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `contract` (
+CREATE TABLE `contracts` (
   `contract_id` int(11) NOT NULL AUTO_INCREMENT,
   `contract_type` enum('Assurance Vie','Assurance Habitation','Crédit Immobilier','Crédit à la Consommation','Compte Épargne Logement (CEL)') NOT NULL,
   `contract_price` double(6,2) NOT NULL,
@@ -83,26 +83,26 @@ CREATE TABLE `contract` (
   `contract_userId` int(11) NOT NULL,
   PRIMARY KEY (`contract_id`),
   KEY `fk_contract_user` (`contract_userId`),
-  CONSTRAINT `fk_contract_user` FOREIGN KEY (`contract_userId`) REFERENCES `user` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `fk_contract_user` FOREIGN KEY (`contract_userId`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `contract`
+-- Dumping data for table `contracts`
 --
 
-/*!40000 ALTER TABLE `contract` DISABLE KEYS */;
-INSERT INTO `contract` VALUES (5,'Assurance Vie',80.00,120,1),(6,'Assurance Habitation',50.00,24,1),(7,'Compte Épargne Logement (CEL)',60.00,96,2),(8,'Crédit Immobilier',999.99,180,3),(13,'Crédit à la Consommation',250.00,36,4),(14,'Assurance Vie',100.00,120,5);
-/*!40000 ALTER TABLE `contract` ENABLE KEYS */;
+/*!40000 ALTER TABLE `contracts` DISABLE KEYS */;
+INSERT INTO `contracts` VALUES (5,'Assurance Vie',80.00,120,1),(6,'Assurance Habitation',50.00,24,1),(7,'Compte Épargne Logement (CEL)',60.00,96,2),(8,'Crédit Immobilier',999.99,180,3),(13,'Crédit à la Consommation',250.00,36,4),(14,'Assurance Vie',100.00,120,5);
+/*!40000 ALTER TABLE `contracts` ENABLE KEYS */;
 
 --
--- Table structure for table `user`
+-- Table structure for table `users`
 --
 
-DROP TABLE IF EXISTS `user`;
+DROP TABLE IF EXISTS `users`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `user` (
+CREATE TABLE `users` (
   `user_id` int(11) NOT NULL AUTO_INCREMENT,
   `user_firstName` varchar(50) NOT NULL,
   `user_lastName` varchar(50) NOT NULL,
@@ -115,12 +115,12 @@ CREATE TABLE `user` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `user`
+-- Dumping data for table `users`
 --
 
-/*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'Doe','John','johndoe@gmail.com','+33724287934','7, Avenue de la Résistance, Paris 14e'),(2,'Doe','Jane','janedoe@gmail.com','+33711223344','7, Avenue de la Résistance, Paris 14e'),(3,'Dupont','Cédric','dupontced@hotmail.fr','+33625242524','45, place de Verdun, Nîmes'),(4,'Carne','Alina','alinac@outlook.com','+45262726272',NULL),(5,'Valjean','Jean','jean-v-revolution@gmail.com','+33711122233',NULL);
-/*!40000 ALTER TABLE `user` ENABLE KEYS */;
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (1,'Doe','John','johndoe@gmail.com','+33724287934','7, Avenue de la Résistance, Paris 14e'),(2,'Doe','Jane','janedoe@gmail.com','+33711223344','7, Avenue de la Résistance, Paris 14e'),(3,'Dupont','Cédric','dupontced@hotmail.fr','+33625242524','45, place de Verdun, Nîmes'),(4,'Carne','Alina','alinac@outlook.com','+45262726272',NULL),(5,'Valjean','Jean','jean-v-revolution@gmail.com','+33711122233',NULL);
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
 
 --
 -- Dumping routines for database 'mvc-banks'
@@ -135,4 +135,4 @@ INSERT INTO `user` VALUES (1,'Doe','John','johndoe@gmail.com','+33724287934','7,
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-04-07 14:15:00
+-- Dump completed on 2025-04-09 11:16:12

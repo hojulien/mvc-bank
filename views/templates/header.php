@@ -16,10 +16,10 @@
                     <h1><a href="?">BankLounge 🏦</a></h1>
                 </div>
                 <div class="nav-options">
-                    <p class="nav-option"><a href="?action=user-list">Liste des clients</a></p>
-                    <p class="nav-option"><a href="?action=bank-list">Liste des comptes</a></p>
-                    <p class="nav-option"><a href="?action=contract-list">Liste des contrats</a></p>
                     <?php if (isset($_SESSION['admin_id'])): ?>
+                        <p class="nav-option"><a href="?action=user-list">Liste des clients</a></p>
+                        <p class="nav-option"><a href="?action=bank-list">Liste des comptes</a></p>
+                        <p class="nav-option"><a href="?action=contract-list">Liste des contrats</a></p>
                         <p class="nav-option"><a href="?action=logout">Déconnexion</a></p>
                     <?php else: ?>
                         <p class="nav-option"><a href="?action=login">Se connecter</a></p>

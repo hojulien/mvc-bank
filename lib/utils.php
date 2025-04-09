@@ -50,4 +50,21 @@
             };
         }
     }
+    function isConnected() {
+        if (isset($_SESSION['admin_id'])) {
+            return true;
+        }
+        return false;
+    }
+
+    function redirect(string $action) {
+        header('Location: ' . $action);
+        exit;
+    }
+
+    function requireAdmin() {
+        if (!isConnected()) {
+            redirect("?action=no-access");
+        }
+    }
 ?>

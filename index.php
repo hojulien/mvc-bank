@@ -95,6 +95,10 @@ switch($action) {
     case('contract-delete'):
         $contractC->delete($id);
         break;
+    // NO ACCESS
+    case('no-access'):
+        require_once __DIR__ . '/views/no-access.php';
+        break;
     default:
         require_once __DIR__ . '/views/404.php';
 }

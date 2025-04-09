@@ -12,45 +12,49 @@ class BankController {
     }
 
     public function home() {
+        requireAdmin();
         $banks = $this->bankRepo->getAccounts();
         require_once __DIR__ . '/../views/bank/list.php';
     }
 
     public function view(int $id) {
+        requireAdmin();
         $bank = $this->bankRepo->getAccount($id);
         require_once __DIR__ . '/../views/bank/view.php';
     }
 
     public function create() {
+        requireAdmin();
         require_once __DIR__ . '/../views/bank/create.php';
     }
 
     public function add() {
+        requireAdmin();
         $bank = new BankAccount($_POST['iban'], EnumAccount::toEnum($_POST['typeA']), $_POST['balance'], $_POST['userId']);
         $this->bankRepo->create($bank);
 
-        header('Location: ?action=bank-list');
-        exit;
+        redirect("?action=bank-list");
     }
 
     public function edit(int $id) {
+        requireAdmin();
         $bank = $this->bankRepo->getAccount($id);
         require_once __DIR__ . '/../views/bank/edit.php';
     }
 
     public function update() {
+        requireAdmin();
         $bank = new BankAccount($_POST['iban'], EnumAccount::toEnum($_POST['typeA']), $_POST['balance'], $_POST['userId']);
         $bank->setId($_POST['id']);
         $this->bankRepo->update($bank);
 
-        header('Location: ?action=bank-list');
-        exit;
+        redirect("?action=bank-list");
     }
 
     public function delete(int $id) {
+        requireAdmin();
         $this->bankRepo->delete($id);
 
-        header('Location: ?action=bank-list');
-        exit;
+        redirect("?action=bank-list");
     }
 }

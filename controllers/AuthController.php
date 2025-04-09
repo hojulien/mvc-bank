@@ -19,10 +19,9 @@ class AuthController {
 
         $admin = $this->adminRepo->getAdminByEmail($email);
 
-        if (password_verify($password, $admin->getPassword())) {
+        if ($admin && password_verify($password, $admin->getPassword())) {
             $_SESSION['admin_id'] = $admin->getId();
-            header('Location: ?');
-            exit;
+            redirect("?");
         } else {
             header('Location: ' . $_SERVER['HTTP_REFERER']);
             exit;

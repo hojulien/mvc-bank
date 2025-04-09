@@ -29,8 +29,7 @@ class ContractController {
         $contract = new Contract(EnumContract::toEnum($_POST['typeC']), $_POST['price'], $_POST['duration'], $_POST['userId']);
         $this->contractRepo->create($contract);
 
-        header('Location: ?action=contract-list');
-        exit;
+        redirect("?action=contract-list");
     }
 
     public function edit(int $id) {
@@ -43,14 +42,12 @@ class ContractController {
         $contract->setId($_POST['id']);
         $this->contractRepo->update($contract);
 
-        header('Location: ?action=contract-list');
-        exit;
+        redirect("?action=contract-list");
     }
 
     public function delete(int $id) {
         $this->contractRepo->delete($id);
 
-        header('Location: ?action=contract-list');
-        exit;
+        redirect("?action=contract-list");
     }
 }
