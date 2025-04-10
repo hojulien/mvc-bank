@@ -20,7 +20,13 @@
                         <?php foreach($banks as $bank): ?>
                         <tr>
                             <td><?= $bank->getId(); ?></td>
-                            <td><?= $bank->getUserId(); ?></td>
+                            <td>
+                                <?php
+                                    $uId = $bank->getUserId();
+                                    $user = $userById[$uId];
+                                    echo "{$user->getId()} - {$user->getLastName()} {$user->getFirstName()}";
+                                ?>
+                            </td>
                             <td><?= $bank->getIban(); ?></td>
                             <td><?= $bank->getTypeAccount(); ?></td>
                             <td><?= $bank->getBalance(); ?></td>

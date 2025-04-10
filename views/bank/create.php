@@ -16,11 +16,15 @@
                     </div>
                     <div class="form">
                         <label for="balance">Solde bancaire</label>
-                        <input type="number" step="0.01" min="0" id="balance" name="balance" required>
+                        <input type="number" step="0.01" id="balance" name="balance" required>
                     </div>
                     <div class="form">
                         <label for="userId">ID Client:</label>
-                        <input type="number" id="userId" name="userId">
+                        <select name="userId" id="userId">
+                            <?php foreach($users as $user): ?>
+                            <option value="<?= $user->getId(); ?>"><?= "{$user->getId()} - {$user->getLastName()} {$user->getFirstName()}" ?></option>
+                            <?php endforeach; ?>
+                        </select>
                     </div>
                     <button class="form-valid" type="submit">Ajouter</button>
                 </form>

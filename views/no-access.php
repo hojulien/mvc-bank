@@ -1,9 +1,16 @@
 <?php require_once __DIR__ . '/templates/header.php'; ?>
 
+<?php 
+    if (isset($_SESSION['admin_id'])) {
+        redirect("?");
+    } 
+?>
+
     <section>
-        <h1>🚫 Vous n'avez pas les autorisations pour accéder à cette page.</h1>
+        <h1>🚫 Accès non autorisé</h1> <br>
+        <p>Vous n'avez pas les permissions pour accéder à cette page.</p>
         <p>Redirection vers la page de connexion dans <span id="countdown">5</span> secondes...</p>
-        <p>Si cela ne marche pas, <a href="?action=login">cliquez ici!</a>.</p>
+        <p>Si cela ne marche pas, <a id="toLogin" href="?action=login">cliquez ici!</a>.</p>
 
         <script>
             let seconds = 5;

@@ -48,6 +48,22 @@ body.dark-mode {
     display: none;
 }
 
+/* error, no-access, login */
+
+.error {
+    color: red;
+}
+
+#countdown {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+a#toLogin {
+    color: #0000EE;
+    text-decoration: underline;
+}
+
 /* factorization (common values) */
 
 body {

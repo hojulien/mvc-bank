@@ -20,7 +20,13 @@
                         <?php foreach($contracts as $contract): ?>
                         <tr>
                             <td><?= $contract->getId(); ?></td>
-                            <td><?= $contract->getUserId(); ?></td>
+                            <td>
+                                <?php
+                                    $uId = $contract->getUserId();
+                                    $user = $userById[$uId];
+                                    echo "{$user->getId()} - {$user->getLastName()} {$user->getFirstName()}";
+                                ?>
+                            </td>
                             <td><?= $contract->getTypeContract(); ?></td>
                             <td><?= $contract->getPrice(); ?></td>
                             <td><?= $contract->getDuration(); ?></td>

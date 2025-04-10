@@ -23,6 +23,7 @@ class AuthController {
             $_SESSION['admin_id'] = $admin->getId();
             redirect("?");
         } else {
+            $_SESSION['error_message'] = "Erreur: mot de passe ou adresse e-mail incorrect.";
             header('Location: ' . $_SERVER['HTTP_REFERER']);
             exit;
         }

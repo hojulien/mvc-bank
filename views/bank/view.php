@@ -17,7 +17,13 @@
                     </div>
                     <div class="view-options">
                         <div class="view-option key">ID Client</div>
-                        <div class="view-option value"><?= $bank->getUserId() ?></div>
+                        <div class="view-option value">
+                            <?php
+                                $uId = $bank->getUserId();
+                                $user = $userById[$uId];
+                                echo "{$user->getId()} - {$user->getLastName()} {$user->getFirstName()}";
+                            ?>
+                        </div>
                     </div>
                     <div class="view-buttons">
                         <button id="edit"><a href="?action=bank-edit&id=<?= $bank->getId() ?>">Modifier les informations du compte ✏️</a></button>

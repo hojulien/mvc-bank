@@ -23,7 +23,11 @@
                     </div>
                     <div class="form">
                         <label for="userId">ID Client:</label>
-                        <input type="number" id="userId" name="userId">
+                        <select name="userId" id="userId">
+                            <?php foreach($users as $user): ?>
+                            <option value="<?= $user->getId(); ?>"><?= "{$user->getId()} - {$user->getLastName()} {$user->getFirstName()}" ?></option>
+                            <?php endforeach; ?>
+                        </select>
                     </div>
                     <button class="form-valid" type="submit">Ajouter</button>
                 </form>

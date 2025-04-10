@@ -17,7 +17,13 @@
                     </div>
                     <div class="view-options">
                         <div class="view-option key">ID Client</div>
-                        <div class="view-option value"><?= $contract->getUserId() ?></div>
+                        <div class="view-option value">
+                            <?php
+                                $uId = $contract->getUserId();
+                                $user = $userById[$uId];
+                                echo "{$user->getId()} - {$user->getLastName()} {$user->getFirstName()}";
+                            ?>
+                        </div>
                     </div>
                     <div class="view-buttons">
                         <button id="edit"><a href="?action=contract-edit&id=<?= $contract->getId() ?>">Modifier les informations du contrat ✏️</a></button>
