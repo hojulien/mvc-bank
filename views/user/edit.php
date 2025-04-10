@@ -1,7 +1,9 @@
 <?php require_once __DIR__ . '/../templates/header.php'; ?>
 
             <section>
-                <h1>Modifier un client</h1>
+                <div class="title">
+                    <h1>Modifier un client existant</h1>
+                </div>
                 <form action="?action=user-update" method="POST">
                     <input type="hidden" name="id" value="<?= $user->getId() ?>">
                     <div class="form">

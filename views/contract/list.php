@@ -2,7 +2,9 @@
 
             <section>
                 <h1><a href="?action=contract-create">Ajouter un nouveau contrat</a></h1> <br>
-                <h1>Liste des contrats</h1>
+                <div class="title">
+                    <h1>Liste des contrats</h1>
+                </div>
 
                 <table>
                     <thead>

@@ -2,7 +2,9 @@
 
             <section>
                 <h1><a href="?action=bank-create">Ajouter un nouveau compte</a></h1> <br>
-                <h1>Liste des comptes bancaires</h1>
+                <div class="title">
+                    <h1>Liste des comptes bancaires</h1>
+                </div>
 
                 <table>
                     <thead>

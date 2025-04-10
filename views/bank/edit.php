@@ -1,7 +1,9 @@
 <?php require_once __DIR__ . '/../templates/header.php'; ?>
 
             <section>
-                <h1>Modifier un compte existant</h1>
+                <div class="title">
+                    <h1>Modifier un compte bancaire existant</h1>
+                </div>
                 <form action="?action=bank-update" method="POST">
                     <input type="hidden" name="id" value="<?= $bank->getId() ?>">
                     <div class="form">

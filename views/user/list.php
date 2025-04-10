@@ -2,7 +2,9 @@
 
             <section>
                 <h1><a href="?action=user-create">Ajouter un nouveau client</a></h1> <br>
-                <h1>Liste des users</h1>
+                <div class="title">
+                    <h1>Liste des clients</h1>
+                </div>
 
                 <div class="table-container">
                     <table>

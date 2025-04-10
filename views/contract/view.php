@@ -1,7 +1,9 @@
 <?php require_once __DIR__ . '/../templates/header.php'; ?>
 
             <section>
-                <h1>Détails du contrat</h1>
+                <div class="title">
+                    <h1>Détails du contrat</h1>
+                </div>
                 <div class="view-container">
                     <div class="view-options">
                         <div class="view-option key">Type de contrat</div>

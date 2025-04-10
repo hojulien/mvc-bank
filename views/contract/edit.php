@@ -1,7 +1,9 @@
 <?php require_once __DIR__ . '/../templates/header.php'; ?>
 
             <section>
-                <h1>Modifier un contrat</h1>
+                <div class="title">
+                    <h1>Modifier un contrat existant</h1>
+                </div>
                 <form action="?action=contract-update" method="POST">
                     <input type="hidden" name="id" value="<?= $contract->getId() ?>">
                     <div class="form">

@@ -26,7 +26,7 @@
                         <p class="nav-option"><a href="?action=login">Se connecter</a></p>
                     <?php endif; ?>
                     <div id="darkMode">
-                        <img id="dark"src="assets/images/dark_mode.svg" alt="Dark mode">
+                        <img id="dark" src="assets/images/dark_mode.svg" alt="Dark mode">
                         <img id="light" src="assets/images/light_mode.svg" alt="Light mode">
                     </div>
                 </div>

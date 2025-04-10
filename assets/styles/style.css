@@ -146,6 +146,17 @@ section {
 
 /* list */
 
+.title h1 {
+    margin: 0 auto;
+    border-radius: 10px;
+    background-color: var(--main);
+}
+
+.title h1 {
+    display: inline-block;
+    padding: 10px 20px;
+}
+
 .table-container {
     overflow-x: auto;
     max-width: 100%;

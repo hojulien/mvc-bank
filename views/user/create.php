@@ -1,7 +1,9 @@
 <?php require_once __DIR__ . '/../templates/header.php'; ?>
 
             <section>
-                <h1>Ajouter un nouveau client</h1>
+                <div class="title">
+                    <h1>Ajouter un nouveau client</h1>
+                </div>
                 <form action="?action=user-add" method="POST">
                     <div class="form">
                         <label for="fName" class="form-label">Nom:</label>
