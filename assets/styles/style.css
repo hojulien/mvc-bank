@@ -6,41 +6,96 @@
     /* outline: 1px solid yellow; */
 }
 
-/* NAV BAR (HEADER) */
+/* dark mode */
+
+:root {
+    --main: #7b969d;
+    --text-main: black;
+    --dark: #5b6e74;
+    --section: #a1b9c1;
+    --view: #66a1d1;
+    --edit: #d5924c;
+    --delete: #db8787;
+}
+
+body {
+    visibility: hidden;
+}
+
+body.dark-mode {
+    --main: #2f3b3e;
+    --text-main: white;
+    --dark: #242b2d;
+    --section: #4e5d62;
+    --view: #36566f;
+    --edit: #8b762f;
+    --delete: #802525;
+}
+
+#darkMode {
+    display: flex;
+    align-items: stretch;
+    padding-right: 10px;
+    cursor: pointer;
+}
+
+#dark, #light {
+    width: 24px;
+    height: auto;
+}
+
+#light {
+    display: none;
+}
+
+/* factorization (common values) */
+
+body {
+    color: var(--text-main);
+}
+
+nav, .home-option, td, .form-valid, .return, .value, footer {
+    background-color: var(--main);
+}
+
+.nav-option:hover, .key {
+    background-color: var(--dark);
+}
+
+.nav-title, .nav-option, .home-options, .home-option, .form, .view-container, #copyright {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav, .nav-options, .view-options, .view-buttons, footer {
+    display: flex;
+    align-items: stretch;
+}
+
+/* navigation bar */
 
 nav {
     margin: 0 auto;
     height: 60px;
-    display: flex;
     justify-content: space-between;
-    align-items: stretch;
-    background-color: #7b969d;
 }
 
 .nav-title {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     padding: 10px 30px;
 }
 
 .nav-options {
-    display: flex;
     justify-content: center;
-    align-items: stretch;
     gap: 10px;
 }
 
 .nav-option {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     padding: 10px;
 }
 
 .nav-option:hover {
     cursor: pointer;
-    background-color: #5b6e74;
 }
 
 a {
@@ -54,13 +109,10 @@ section {
     padding: 30px;
     min-height: 100vh;
     text-align: center;
-    background-color: #a1b9c1;
+    background-color: var(--section);
 }
 
 .home-options {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     max-width: 1000px;
     height: 500px;
     margin: 50px auto;
@@ -68,15 +120,11 @@ section {
 }
 
 .home-option {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     min-width: 100px;
     flex: 1;
     height: 100%;
     font-size: 25px;
-    background-color: #7b969d;
-    border: 3px solid #5b6e74;
+    border: 3px solid var(--dark);
     border-radius: 10px;
 }
 
@@ -98,13 +146,8 @@ thead {
     color: white;
 }
 
-th {
-    padding: 10px;
-}
-
-td {
-    padding: 20px;
-    background-color: #7b969d;
+th, td {
+    padding: 15px;
 }
 
 button {
@@ -112,7 +155,8 @@ button {
     min-width: 120px;
     padding: 10px;
     border-radius: 10px;
-    border: 2px solid #5b6e74;
+    border: 2px solid var(--dark);
+    color: var(--text-main);
     background: none;
 }
 
@@ -121,15 +165,15 @@ button:hover {
 }
 
 #view {
-    background-color: #66a1d1;
+    background-color: var(--view);
 }
 
 #edit {
-    background-color: #d5924c;
+    background-color: var(--edit);
 }
 
 #delete {
-    background-color: #db8787;
+    background-color: var(--delete);
 }
 
 /* create: forms */
@@ -140,9 +184,6 @@ form {
 }
 
 .form {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     padding: 5px;
     gap: 10px;
     width: 100%;
@@ -159,29 +200,19 @@ input, textarea, select {
 }
 
 .form-valid {
-    background-color: #7b969d;
     margin: 20px;
-}
-
-.return {
-    background-color: #7b969d;
 }
 
 /* view */ 
 
 .view-container {
-    display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
     gap: 20px;
     padding: 30px;
 }
 
 .view-options {
-    display: flex;
     justify-content: space-between;
-    align-items: stretch;
     width: 100%;
     min-width: 300px;
     max-width: 700px;
@@ -194,21 +225,17 @@ input, textarea, select {
 }
 
 .view-buttons {
-    display: flex;
-    align-items: stretch;
     gap: 10px;
 }
 
 .key {
     font-weight: bold;
-    background-color: #5b6e74;
     width: 40%;
     height: 100%;
     border-radius: 10px 0 0 10px;
 }
 
 .value {
-    background-color: #7b969d;
     width: 60%;
     height: 100%;
     border-radius: 0 10px 10px 0;
@@ -217,21 +244,17 @@ input, textarea, select {
 /* footer */
 
 footer {
-    display: flex;
     justify-content: flex-end;
-    align-items: stretch;
     margin: 0 auto;
     height: 60px;
-    background-color: #7b969d;
 }
 
 #copyright {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     font-size: 20px;
     padding: 20px;
 }
+
+/* media queries (wip) */
 
 @media (max-width: 800px) {
     .home-options {

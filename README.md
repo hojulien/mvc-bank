@@ -14,13 +14,18 @@ Dans le cadre de la formation "Développeur Web et Web mobile" chez Simplon, cec
 
 ```md
 📂 mvc-bank
+├── 📂 assets
+│   ├── 📂 images
+│   ├── 📂 scripts
+│   └── 📂 styles
 ├── 📂 controllers
 ├── 📂 lib
-├── 📂 merise
+│   ├── 📄 database.php (connexion à la DB)
+│   └── 📄 utils.php (fonctions utiles au code)
+├── 📂 merise (fichiers liées à la modélisation des données)
 ├── 📂 models
-├── 📂 styles
 ├── 📂 views
-│   ├── 📂 bank-view
+│   ├── 📂 bank-view 
 │   ├── 📂 contract-view
 │   ├── 📂 user-view
 │   └── 📂 templates
