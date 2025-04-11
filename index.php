@@ -14,7 +14,7 @@ $contractC = new ContractController();
 $authC = new AuthController();
 $homeC = new HomeController();
 
-$action = $_GET['action'] ?? 'home'; // home par defaut.
+$action = $_GET['action'] ?? 'home';
 $id = $_GET['id'] ?? null;
 
 switch($action) {

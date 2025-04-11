@@ -4,7 +4,7 @@ form.addEventListener("submit", (e) => {
     e.preventDefault();
     let isValid = true;
 
-    // ACCOUNT TYPE
+    // CONTRACT TYPE
     if (document.getElementById("typeC").value === "") {
         document.getElementById("error-typeC").textContent = "Veuillez sélectionner un type de contrat."
         isValid = setTo(isValid, false);

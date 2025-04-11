@@ -26,6 +26,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
+// passage au mode sombre/clair
+
 darkMode.addEventListener("click", () => {
     body.classList.add("dark-mode");
     localStorage.setItem("theme", "dark"); 

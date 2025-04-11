@@ -6,7 +6,7 @@
     /* outline: 1px solid yellow; */
 }
 
-/* dark mode */
+/* DARK MODE */
 
 :root {
     --main: #7b969d;
@@ -46,7 +46,7 @@ body.dark-mode {
     display: none;
 }
 
-/* error, no-access, login */
+/* ERROR MESSAGE, NO-ACCESS, LOGIN */
 
 .error {
     color: red;
@@ -62,7 +62,7 @@ a.link {
     text-decoration: underline;
 }
 
-/* factorization (common values) */
+/* FACTORIZATION (common values) */
 
 body {
     color: var(--text-main);
@@ -76,7 +76,7 @@ nav, .nav-dropdown-option, .home-option, td, .form-valid, .return, .value, foote
     background-color: var(--dark);
 }
 
-.nav-title, .nav-option, .form, .view-container, #copyright {
+.nav-title, .nav-option, .home-options, .home-option, .form, .view-container, #copyright {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -87,7 +87,7 @@ nav, .nav-options, .view-options, .view-buttons, footer {
     align-items: stretch;
 }
 
-/* navigation bar */
+/* NAVIGATION BAR */
 
 nav {
     margin: 0 auto;
@@ -134,7 +134,7 @@ a {
     text-decoration: none;
 }
 
-/* home */
+/* HOME */
 
 section {
     padding: 30px;
@@ -144,9 +144,6 @@ section {
 }
 
 .home-options {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     max-width: 1000px;
     height: 500px;
     margin: 50px auto;
@@ -154,9 +151,6 @@ section {
 }
 
 .home-option {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
     gap: 30px;
     min-width: 100px;
@@ -172,7 +166,7 @@ section {
     font-size: 40px;
 }
 
-/* list */
+/* LIST */
 
 .title h1 {
     margin: 0 auto;
@@ -227,7 +221,7 @@ button:hover {
     background-color: var(--delete);
 }
 
-/* create: forms */
+/* CREATE/EDIT (FORMS) */
 
 form {
     margin: 0 auto;
@@ -261,7 +255,7 @@ label, input, select {
     margin: 20px;
 }
 
-/* view */ 
+/* VIEW */ 
 
 .view-container {
     flex-direction: column;
@@ -299,7 +293,7 @@ label, input, select {
     border-radius: 0 10px 10px 0;
 }
 
-/* footer */
+/* FOOTER */
 
 footer {
     justify-content: flex-end;
@@ -312,7 +306,7 @@ footer {
     padding: 20px;
 }
 
-/* media queries (wip) */
+/* MEDIA QUERIES */
 
 @media (max-width: 800px) {
     .home-options {
@@ -345,18 +339,5 @@ footer {
         align-items: center;
         padding: 0 10px 10px;
     }
-
-    /* .home-option {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        gap: 30px;
-        min-width: 100px;
-        flex: 1;
-        height: 100%;
-        font-size: 25px;
-        border: 3px solid var(--dark);
-        border-radius: 10px;
-    } */
+    
 }
