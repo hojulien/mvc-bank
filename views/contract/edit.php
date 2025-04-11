@@ -1,10 +1,10 @@
 <?php require_once __DIR__ . '/../templates/header.php'; ?>
-
+            <script src="./assets/scripts/contractform.js" defer></script>
             <section>
                 <div class="title">
                     <h1>Modifier un contrat existant</h1>
                 </div>
-                <form action="?action=contract-update" method="POST">
+                <form id="formContract" action="?action=contract-update" method="POST">
                     <input type="hidden" name="id" value="<?= $contract->getId() ?>">
                     <div class="form">
                         <label for="typeC">Type de contrat:</label>
@@ -16,14 +16,17 @@
                             <option <?= $typeC == 'Crédit à la Consommation' ? 'selected' : '' ?> value="Crédit à la Consommation">Crédit à la Consommation</option>
                             <option <?= $typeC == 'Compte Épargne Logement (CEL)' ? 'selected' : '' ?> value="Compte Épargne Logement (CEL)">Compte Épargne Logement (CEL)</option>
                         </select>
+                        <div class="error" id="error-typeC"></div>
                     </div>
                     <div class="form">
                         <label for="price">Prix mensuel:</label>
-                        <input type="number" step="0.01" min="0" id="price" name="price" value="<?= $contract->getPrice() ?>" required>
+                        <input type="number" step="0.01" min="0" id="price" name="price" value="<?= $contract->getPrice() ?>">
+                        <div class="error" id="error-price"></div>
                     </div>
                     <div class="form">
                         <label for="duration">Durée (mois)</label>
-                        <input type="number" id="duration" name="duration" value="<?= $contract->getDuration() ?>" required>
+                        <input type="number" id="duration" name="duration" value="<?= $contract->getDuration() ?>">
+                        <div class="error" id="error-duration"></div>
                     </div>
                     <div class="form">
                         <label for="userId">ID Client:</label>

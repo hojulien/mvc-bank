@@ -1,29 +1,34 @@
 <?php require_once __DIR__ . '/../templates/header.php'; ?>
-
+            <script src="./assets/scripts/userform.js" defer></script>
             <section>
                 <div class="title">
                     <h1>Ajouter un nouveau client</h1>
                 </div>
-                <form action="?action=user-add" method="POST">
+                <form id="formUser" action="?action=user-add" method="POST">
                     <div class="form">
-                        <label for="fName" class="form-label">Nom:</label>
-                        <input type="text" class="form-control" id="fName" name="fName" required>
+                        <label for="fName">Nom:</label>
+                        <input type="text" id="fName" name="fName">
+                        <div class="error" id="error-fName"></div>
                     </div>
                     <div class="form">
-                        <label for="lName" class="form-label">Prénom:</label>
-                        <input type="text" class="form-control" id="lName" name="lName" required>
+                        <label for="lName">Prénom:</label>
+                        <input type="text" id="lName" name="lName">
+                        <div class="error" id="error-lName"></div>
                     </div>
                     <div class="form">
-                        <label for="email" class="form-label">Adresse e-mail:</label>
-                        <input type="email" class="form-control" id="email" name="email" required>
+                        <label for="email">Adresse e-mail:</label>
+                        <input type="text" id="email" name="email">
+                        <div class="error" id="error-email"></div>
                     </div>
                     <div class="form">
-                        <label for="phoneN" class="form-label">Numéro de téléphone:</label>
-                        <input type="text" class="form-control" id="phoneN" name="phoneN" required>
+                        <label for="phoneN">Numéro de téléphone:</label>
+                        <input type="text" id="phoneN" name="phoneN">
+                        <div class="error" id="error-phoneN"></div>
                     </div>
                     <div class="form">
-                        <label for="address" class="form-label">Adresse: </label>
-                        <input type="text" class="form-control" id="address" name="address">
+                        <label for="address">Adresse: </label>
+                        <input type="text" id="address" name="address">
+                        <div class="error" id="error-address"></div>
                     </div>
                     <button class="form-valid" type="submit">Ajouter</button>
                 </form>

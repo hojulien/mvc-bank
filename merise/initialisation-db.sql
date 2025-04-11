@@ -51,7 +51,7 @@ CREATE TABLE `bankaccounts` (
   `bank_id` int(11) NOT NULL AUTO_INCREMENT,
   `bank_iban` varchar(40) NOT NULL,
   `bank_typeAccount` enum('Compte courant','Compte épargne') NOT NULL,
-  `bank_balance` double(9,2) NOT NULL CHECK (`bank_balance` >= 0),
+  `bank_balance` double(9,2) NOT NULL,
   `bank_userId` int(11) NOT NULL,
   PRIMARY KEY (`bank_id`),
   UNIQUE KEY `bank_iban` (`bank_iban`),

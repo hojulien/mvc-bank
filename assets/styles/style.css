@@ -235,27 +235,26 @@ form {
 }
 
 .form {
+    display: flex;
+    flex-direction: column;
     padding: 5px;
     gap: 10px;
     width: 100%;
 }
 
-label {
-    width: 200px;
-    text-align: right;
-}
-
-.form-label {
-    padding: 8px;
-}
-
-input, select {
+label, input, select {
+    display: inline-block;
     width: 250px;
-    padding: 8px;
+    padding: 5px;
 }
 
 label, input, select {
+    display: inline-block;
     border-radius: 2px;
+}
+
+.error {
+    display: block;
 }
 
 .form-valid {

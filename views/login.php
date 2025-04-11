@@ -5,12 +5,13 @@
         redirect("?");
     } 
 ?>
-
+                <script src="./assets/scripts/login.js" defer></script>
                 <section>
-                    <form action="?action=doLogin" method="POST">
+                    <form id="login" action="?action=doLogin" method="POST">
                         <div class="form">
                             <label>Adresse email:</label>
-                            <input type="email" name="email">
+                            <input type="text" name="email" id="email">
+                            <div class="error" id="error-email"></div>
                         </div>
                         <div class="form">
                             <label>Mot de passe:</label>

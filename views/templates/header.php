@@ -15,7 +15,7 @@
         <header>
             <nav>
                 <div class="nav-title">
-                    <h1><a href="?">BankLounge 🏦</a></h1>
+                    <h1><a href="<?= isset($_SESSION['admin_id']) ? '?' : '?action=login' ?>">BankLounge 🏦</a></h1>
                 </div>
                 <div class="nav-options">
                     <?php if (isset($_SESSION['admin_id'])): ?>

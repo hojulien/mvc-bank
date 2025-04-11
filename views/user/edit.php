@@ -1,30 +1,35 @@
 <?php require_once __DIR__ . '/../templates/header.php'; ?>
-
+            <script src="./assets/scripts/userform.js" defer></script>
             <section>
                 <div class="title">
                     <h1>Modifier un client existant</h1>
                 </div>
-                <form action="?action=user-update" method="POST">
+                <form id="formUser" action="?action=user-update" method="POST">
                     <input type="hidden" name="id" value="<?= $user->getId() ?>">
                     <div class="form">
-                        <label for="fName" class="form-label">Nom:</label>
-                        <input type="text" class="form-control" id="fName" name="fName" value="<?= $user->getFirstName() ?>" required>
+                        <label for="fName">Nom:</label>
+                        <input type="text" id="fName" name="fName" value="<?= $user->getFirstName() ?>">
+                        <div class="error" id="error-fName"></div>
                     </div>
                     <div class="form">
-                        <label for="lName" class="form-label">Prénom:</label>
-                        <input type="text" class="form-control" id="lName" name="lName" value="<?= $user->getLastName() ?>" required>
+                        <label for="lName">Prénom:</label>
+                        <input type="text" id="lName" name="lName" value="<?= $user->getLastName() ?>">
+                        <div class="error" id="error-lName"></div>
                     </div>
                     <div class="form">
-                        <label for="email" class="form-label">Adresse e-mail:</label>
-                        <input type="email" class="form-control" id="email" name="email" value="<?= $user->getEmail() ?>" required>
+                        <label for="email">Adresse e-mail:</label>
+                        <input type="text" id="email" name="email" value="<?= $user->getEmail() ?>">
+                        <div class="error" id="error-email"></div>
                     </div>
                     <div class="form">
-                        <label for="phoneN" class="form-label">Numéro de téléphone:</label>
-                        <input type="text" class="form-control" id="phoneN" name="phoneN" value="<?= $user->getPhoneNumber() ?>" required>
+                        <label for="phoneN">Numéro de téléphone:</label>
+                        <input type="text" id="phoneN" name="phoneN" value="<?= $user->getPhoneNumber() ?>">
+                        <div class="error" id="error-phoneN"></div>
                     </div>
                     <div class="form">
-                        <label for="address" class="form-label">Adresse: </label>
-                        <input type="text" class="form-control" id="address" name="address" value="<?= $user->getAddress() ?>">
+                        <label for="address">Adresse: </label>
+                        <input type="text" id="address" name="address" value="<?= $user->getAddress() ?>">
+                        <div class="error" id="error-address"></div>
                     </div>
                     <button class="form-valid" type="submit">Modifier les informations</button>
                 </form>
