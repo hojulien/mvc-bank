@@ -9,13 +9,14 @@
                     <div class="form">
                         <label for="typeC">Type de contrat:</label>
                         <?php $typeC = $contract->getTypeContract() ?>
-                        <select name="typeC" id="typeC">
+                        <select name="typeC" id="typeC" disabled>
                             <option <?= $typeC == 'Assurance Vie' ? 'selected' : '' ?> value="Assurance Vie">Assurance Vie</option>
                             <option <?= $typeC == 'Assurance Habitation' ? 'selected' : '' ?> value="Assurance Habitation">Assurance Habitation</option>
                             <option <?= $typeC == 'Crédit Immobilier' ? 'selected' : '' ?> value="Crédit Immobilier">Crédit Immobilier</option>
                             <option <?= $typeC == 'Crédit à la Consommation' ? 'selected' : '' ?> value="Crédit à la Consommation">Crédit à la Consommation</option>
                             <option <?= $typeC == 'Compte Épargne Logement (CEL)' ? 'selected' : '' ?> value="Compte Épargne Logement (CEL)">Compte Épargne Logement (CEL)</option>
                         </select>
+                        <input type="hidden" name="typeC" value="<?= $typeC ?>">
                         <div class="error" id="error-typeC"></div>
                     </div>
                     <div class="form">
@@ -30,13 +31,14 @@
                     </div>
                     <div class="form">
                         <label for="userId">ID Client:</label>
-                        <select name="userId" id="userId">
+                        <select name="userId" id="userId" disabled>
                             <?php foreach($users as $user): ?>
                                 <option value="<?= $user->getId(); ?>" <?= $contract->getUserId() == $user->getId() ? 'selected' : ''; ?>>
                                     <?= "{$user->getId()} - {$user->getLastName()} {$user->getFirstName()}" ?>
                                 </option>
                             <?php endforeach; ?>
                         </select>
+                        <input type="hidden" name="userId" value="<?= $contract->getUserId(); ?>">
                     </div>
                     <button class="form-valid" type="submit">Modifier les informations</button>
                 </form>

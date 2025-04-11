@@ -27,7 +27,7 @@
                     </div>
                     <div class="view-buttons">
                         <button id="edit"><a href="?action=user-edit&id=<?= $user->getId() ?>">Modifier les informations du client ✏️</a></button>
-                        <button id="delete"><a onclick="return confirm('Voulez-vous supprimer ce client?');" href="?action=user-delete&id=<?= $user->getId() ?>">Supprimer le profil client ❌</a></button>
+                        <button id="delete"><a onclick="return confirm('Voulez-vous supprimer ce client? Attention, tous les comptes bancaires et contrats associés à ce client seront également supprimés!');" href="?action=user-delete&id=<?= $user->getId() ?>">Supprimer le profil client ❌</a></button>
                     </div>
                 </div>
                 <button class="return"><a href="?action=user-list" >Retour à la liste</a></button>
@@ -37,33 +37,35 @@
                         <h1>Comptes bancaires</h1>
                     </div>
                     <?php if (!empty($banks)): ?>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>IBAN</th>
-                                    <th>Type de compte</th>
-                                    <th>Solde initial</th>
-                                    <th>Actions</th>
-                                </tr>
-                            </thead>
+                        <div class="table-container">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>IBAN</th>
+                                        <th>Type de compte</th>
+                                        <th>Solde initial</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
 
-                            <tbody>
-                                <?php foreach($banks as $bank): ?>
-                                <tr>
-                                    <td><?= $bank->getId(); ?></td>
-                                    <td><?= $bank->getIban(); ?></td>
-                                    <td><?= $bank->getTypeAccount(); ?></td>
-                                    <td><?= $bank->getBalance(); ?></td>
-                                    <td class="list-options">
-                                        <button id="view"><a href="?action=bank-view&id=<?= $bank->getId() ?>">Voir 🔎</a></button>
-                                        <button id="edit"><a href="?action=bank-edit&id=<?= $bank->getId() ?>">Modifier ✏️</a></button>
-                                        <button id="delete"><a onclick="return confirm('Voulez-vous supprimer ce compte?');" href="?action=bank-delete&id=<?= $bank->getId() ?>">Supprimer ❌</a></button>
-                                    </td>
-                                </tr>
-                                <?php endforeach; ?>
-                            </tbody>
-                        </table>
+                                <tbody>
+                                    <?php foreach($banks as $bank): ?>
+                                    <tr>
+                                        <td><?= $bank->getId(); ?></td>
+                                        <td><?= $bank->getIban(); ?></td>
+                                        <td><?= $bank->getTypeAccount(); ?></td>
+                                        <td><?= $bank->getBalance(); ?></td>
+                                        <td class="list-options">
+                                            <button id="view"><a href="?action=bank-view&id=<?= $bank->getId() ?>">Voir 🔎</a></button>
+                                            <button id="edit"><a href="?action=bank-edit&id=<?= $bank->getId() ?>">Modifier ✏️</a></button>
+                                            <button id="delete"><a onclick="return confirm('Voulez-vous supprimer ce compte?');" href="?action=bank-delete&id=<?= $bank->getId() ?>">Supprimer ❌</a></button>
+                                        </td>
+                                    </tr>
+                                    <?php endforeach; ?>
+                                </tbody>
+                            </table>
+                        </div>
                     <?php else: ?>
                         <p>Ce client ne possède pas de compte bancaire.</p>
                     <?php endif; ?>
@@ -72,33 +74,35 @@
                         <h1>Contrats</h1>
                     </div>
                     <?php if (!empty($contracts)): ?>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Type de contrat</th>
-                                    <th>Prix mensuel</th>
-                                    <th>Durée (mois)</th>
-                                    <th>Actions</th>
-                                </tr>
-                            </thead>
+                        <div class="table-container">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Type de contrat</th>
+                                        <th>Prix mensuel</th>
+                                        <th>Durée (mois)</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
 
-                            <tbody>
-                                <?php foreach($contracts as $contract): ?>
-                                <tr>
-                                    <td><?= $contract->getId(); ?></td>
-                                    <td><?= $contract->getTypeContract(); ?></td>
-                                    <td><?= $contract->getPrice(); ?></td>
-                                    <td><?= $contract->getDuration(); ?></td>
-                                    <td class="list-options">
-                                        <button id="view"><a href="?action=contract-view&id=<?= $contract->getId() ?>">Voir 🔎</a></button>
-                                        <button id="edit"><a href="?action=contract-edit&id=<?= $contract->getId() ?>">Modifier ✏️</a></button>
-                                        <button id="delete"><a onclick="return confirm('Voulez-vous supprimer ce contrat?');" href="?action=contract-delete&id=<?= $contract->getId() ?>">Supprimer ❌</a></button>
-                                    </td>
-                                </tr>
-                                <?php endforeach; ?>
-                            </tbody>
-                        </table>
+                                <tbody>
+                                    <?php foreach($contracts as $contract): ?>
+                                    <tr>
+                                        <td><?= $contract->getId(); ?></td>
+                                        <td><?= $contract->getTypeContract(); ?></td>
+                                        <td><?= $contract->getPrice(); ?></td>
+                                        <td><?= $contract->getDuration(); ?></td>
+                                        <td class="list-options">
+                                            <button id="view"><a href="?action=contract-view&id=<?= $contract->getId() ?>">Voir 🔎</a></button>
+                                            <button id="edit"><a href="?action=contract-edit&id=<?= $contract->getId() ?>">Modifier ✏️</a></button>
+                                            <button id="delete"><a onclick="return confirm('Voulez-vous supprimer ce contrat?');" href="?action=contract-delete&id=<?= $contract->getId() ?>">Supprimer ❌</a></button>
+                                        </td>
+                                    </tr>
+                                    <?php endforeach; ?>
+                                </tbody>
+                            </table>
+                        </div>
                     <?php else: ?>
                         <p>Ce client ne possède pas de contrats.</p>
                     <?php endif; ?>

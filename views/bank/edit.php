@@ -8,7 +8,8 @@
                     <input type="hidden" name="id" value="<?= $bank->getId() ?>">
                     <div class="form">
                         <label for="iban">IBAN:</label>
-                        <input type="text" id="iban" name="iban" value="<?= $bank->getIban() ?>">
+                        <input type="text" id="iban" name="iban" value="<?= $bank->getIban() ?>" disabled>
+                        <input type="hidden" name="iban" value="<?= $bank->getIban() ?>">
                         <div class="error" id="error-iban"></div>
                     </div>
                     <div class="form">
@@ -27,13 +28,14 @@
                     </div>
                     <div class="form">
                         <label for="userId">ID Client:</label>
-                        <select name="userId" id="userId">
+                        <select name="userId" id="userId" disabled>
                             <?php foreach($users as $user): ?>
                                 <option value="<?= $user->getId(); ?>" <?= $bank->getUserId() == $user->getId() ? 'selected' : ''; ?>>
                                     <?= "{$user->getId()} - {$user->getLastName()} {$user->getFirstName()}" ?>
                                 </option>
                             <?php endforeach; ?>
                         </select>
+                        <input type="hidden" name="userId" value="<?= $bank->getUserId(); ?>">
                     </div>
                     <button class="form-valid" type="submit">Modifier les informations</button>
                 </form>
