@@ -50,6 +50,13 @@ class ContractRepository {
         return $contract;
     }
 
+    public function getContractCount(): int {
+        $statement = $this->connection->getConnection()->query('SELECT COUNT(*) as total FROM contracts');
+        $result = $statement->fetch();
+    
+        return (int) $result['total'];
+    }
+
     public function create(Contract $contract): bool {
         $statement = $this->connection
                 ->getConnection()

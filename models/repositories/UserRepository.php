@@ -37,6 +37,14 @@ class UserRepository {
         return $user;
     }
 
+    public function getUserCount(): int {
+        $statement = $this->connection->getConnection()->query('SELECT COUNT(*) as total FROM users');
+        $result = $statement->fetch();
+    
+        return (int) $result['total'];
+    }
+
+
     public function create(User $user): bool {
         $statement = $this->connection
                 ->getConnection()

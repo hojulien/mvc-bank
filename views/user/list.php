@@ -1,7 +1,6 @@
 <?php require_once __DIR__ . '/../templates/header.php'; ?>
 
             <section>
-                <h1><a href="?action=user-create">Ajouter un nouveau client</a></h1> <br>
                 <div class="title">
                     <h1>Liste des clients</h1>
                 </div>
@@ -32,7 +31,7 @@
                                 <td class="list-options">
                                     <button id="view"><a href="?action=user-view&id=<?= $user->getId() ?>">Voir 🔎</a></button>
                                     <button id="edit"><a href="?action=user-edit&id=<?= $user->getId() ?>">Modifier ✏️</a></button>
-                                    <button id="delete"><a onclick="return confirm('Voulez-vous supprimer ce client?');" href="?action=user-delete&id=<?= $user->getId() ?>">Supprimer ❌</a></button>
+                                    <button id="delete"><a onclick="return confirm('Voulez-vous supprimer ce client? Attention, tous les comptes bancaires et contrats associés à ce client seront également supprimés!');" href="?action=user-delete&id=<?= $user->getId() ?>">Supprimer ❌</a></button>
                                 </td>
                             </tr>
                             <?php endforeach; ?>

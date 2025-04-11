@@ -24,7 +24,6 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
         displayDarkIcon();
     }
-    body.style.visibility = "visible";
 });
 
 darkMode.addEventListener("click", () => {

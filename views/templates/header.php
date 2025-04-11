@@ -8,6 +8,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="./assets/styles/style.css">
         <script src="./assets/scripts/darkMode.js" defer></script>
+        <script src="./assets/scripts/dropdown.js" defer></script>
         <title>Gestion bancaire</title>
     </head>
     <body>
@@ -18,9 +19,27 @@
                 </div>
                 <div class="nav-options">
                     <?php if (isset($_SESSION['admin_id'])): ?>
-                        <p class="nav-option"><a href="?action=user-list">Liste des clients</a></p>
-                        <p class="nav-option"><a href="?action=bank-list">Liste des comptes</a></p>
-                        <p class="nav-option"><a href="?action=contract-list">Liste des contrats</a></p>
+                        <div class="nav-option">
+                            <span>Clients</span>
+                            <div class="nav-dropdown-option">
+                                <a href="?action=user-list">Liste des clients</a>
+                                <a href="?action=user-create">Ajouter un nouveau client</a>
+                            </div>
+                        </div>
+                        <div class="nav-option">
+                            <span>Comptes</span>
+                            <div class="nav-dropdown-option">
+                                <a href="?action=bank-list">Liste des comptes</a>
+                                <a href="?action=bank-create">Ajouter un nouveau compte</a>
+                            </div>
+                        </div>
+                        <div class="nav-option">
+                            <span>Contrats</span>
+                            <div class="nav-dropdown-option">
+                                <a href="?action=contract-list">Liste des contrats</a>
+                                <a href="?action=contract-create">Ajouter un nouveau contrat</a>
+                            </div>
+                        </div>
                         <p class="nav-option"><a href="?action=logout">Déconnexion</a></p>
                     <?php else: ?>
                         <p class="nav-option"><a href="?action=login">Se connecter</a></p>

@@ -5,13 +5,19 @@
                 <p>Vous pouvez consulter nos clients, ainsi que leurs comptes et leurs contrats ci-dessous.</p>
                 <div class="home-options">
                     <div class="home-option">
-                        <a href="?action=user-list"><p>Consulter la liste des clients</p></a>
+                        <p>Clients 👤</p>
+                        <p class="count"><?= $total['userCount'] ?></p>
+                        <a class="link" href="?action=user-list">Consulter la liste</a>
                     </div>
                     <div class="home-option">
-                        <a href="?action=bank-list"><p>Consulter la liste des comptes bancaires</p></a>
+                        <p>Comptes bancaires 💳</p>
+                        <p class="count"><?= $total['bankCount'] ?></p>
+                        <a class="link" href="?action=bank-list">Consulter la liste</a>
                     </div>
                     <div class="home-option">
-                        <a href="?action=contract-list"><p>Consulter la liste des contrats</p></a>
+                        <p>Contrats 📃</p>
+                        <p class="count"><?= $total['contractCount'] ?></p>
+                        <a class="link" href="?action=contract-list">Consulter la liste</a>
                     </div>
                 </div>
             </section>

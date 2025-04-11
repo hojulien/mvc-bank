@@ -33,7 +33,9 @@
                 <button class="return"><a href="?action=user-list" >Retour à la liste</a></button>
                 <div class="view-container">
                     <!-- AFFICHE LES COMPTES BANCAIRES ET CONTRATS S'IL EN POSSEDE -->
-                    <h2>Comptes bancaires</h2>
+                    <div class="title">
+                        <h1>Comptes bancaires</h1>
+                    </div>
                     <?php if (!empty($banks)): ?>
                         <table>
                             <thead>
@@ -66,7 +68,9 @@
                         <p>Ce client ne possède pas de compte bancaire.</p>
                     <?php endif; ?>
 
-                    <h2>Contrats</h2>
+                    <div class="title">
+                        <h1>Contrats</h1>
+                    </div>
                     <?php if (!empty($contracts)): ?>
                         <table>
                             <thead>

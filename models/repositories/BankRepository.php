@@ -50,6 +50,13 @@ class BankRepository {
         return $account;
     }
 
+    public function getAccountCount(): int {
+        $statement = $this->connection->getConnection()->query('SELECT COUNT(*) as total FROM bankaccounts');
+        $result = $statement->fetch();
+    
+        return (int) $result['total'];
+    }
+
     public function create(BankAccount $account): bool {
         $statement = $this->connection
                 ->getConnection()
